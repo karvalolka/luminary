@@ -14,6 +14,6 @@ class Char extends Model
 
     public function inventory()
     {
-        return $this->hasOne(Inventory::class);
+        return $this->hasMany(Inventory::class);
     }
 }

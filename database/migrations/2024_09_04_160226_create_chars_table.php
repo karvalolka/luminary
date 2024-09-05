@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedMediumInteger('mp');
             $table->unsignedSmallInteger('attack');
             $table->unsignedSmallInteger('def');
-            $table->unsignedInteger('xp');
+            $table->unsignedInteger('exp');
             $table->timestamps();
         });
     }
