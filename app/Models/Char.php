@@ -19,7 +19,7 @@ class Char extends Model
 
     public function inventory()
     {
-        return $this->hasMany(Inventory::class);
+        return $this->hasOne(Inventory::class);
     }
 
     public function getGrade()

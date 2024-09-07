@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nickname');
             $table->unsignedMediumInteger('hp');
             $table->unsignedMediumInteger('mp');
-            $table->unsignedSmallInteger('attack');
-            $table->unsignedSmallInteger('def');
+            $table->unsignedSmallInteger('attack_power');
+            $table->unsignedSmallInteger('def_power');
             $table->unsignedInteger('exp');
             $table->timestamps();
         });

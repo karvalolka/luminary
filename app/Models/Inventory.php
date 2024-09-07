@@ -9,6 +9,8 @@ class Inventory extends Model
 {
     use HasFactory;
 
+    const MAX_SLOTS = 5;
+
     protected $table = 'inventories';
     protected $guarded = false;
 
@@ -18,7 +20,7 @@ class Inventory extends Model
     }
     public function addItem($item)
     {
-        if ($this->slots()->count() < 5) {
+        if ($this->slots()->count() < self::MAX_SLOTS) {
             $this->slots()->create(['item' => $item]);
             return "Предмет добавлен в инвентарь";
         }
@@ -37,7 +39,7 @@ class Inventory extends Model
         return "Некорректный номер слота!";
     }
 
-    public function updateGold($amount)
+    public function changeGold($amount)
     {
         $this->gold += $amount;
         $this->save();
