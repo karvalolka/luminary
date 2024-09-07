@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProtectionArea extends Model
+class InventorySlot extends Model
 {
     use HasFactory;
 
-    protected $table = 'protection_areas';
+    protected $table = 'inventory_slots';
     protected $guarded = false;
 
-
-    public function armors()
+    public function inventory()
     {
-        return $this->hasMany(Armor::class);
+        return $this->belongsTo(Inventory::class);
     }
 }
+

@@ -14,11 +14,6 @@ return new class extends Migration
         Schema::create('inventories', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('gold')->default(0);
-            $table->string('slot1')->nullable();
-            $table->string('slot2')->nullable();
-            $table->string('slot3')->nullable();
-            $table->string('slot4')->nullable();
-            $table->string('slot5')->nullable();
             $table->foreignId('char_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

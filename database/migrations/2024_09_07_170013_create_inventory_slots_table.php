@@ -11,23 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chars', function (Blueprint $table) {
+        Schema::create('inventory_slots', function (Blueprint $table) {
             $table->id();
-            $table->string('nickname');
-            $table->unsignedMediumInteger('hp');
-            $table->unsignedMediumInteger('mp');
-            $table->unsignedSmallInteger('attack');
-            $table->unsignedSmallInteger('def');
-            $table->unsignedInteger('exp');
+            $table->string('item')->nullable();
+            $table->foreignId('inventory_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('chars');
+        Schema::dropIfExists('inventory_slots');
     }
 };

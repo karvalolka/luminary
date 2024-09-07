@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('armors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedSmallInteger('def');
+            $table->unsignedSmallInteger('power');
             $table->foreignId('protection_area_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

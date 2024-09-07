@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chars', function (Blueprint $table) {
+        Schema::create('attack_rates', function (Blueprint $table) {
             $table->id();
-            $table->string('nickname');
-            $table->unsignedMediumInteger('hp');
-            $table->unsignedMediumInteger('mp');
-            $table->unsignedSmallInteger('attack');
-            $table->unsignedSmallInteger('def');
-            $table->unsignedInteger('exp');
+            $table->string('rate');
             $table->timestamps();
         });
     }
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('chars');
+        Schema::dropIfExists('attack_rates');
     }
 };

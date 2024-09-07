@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('weapons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedSmallInteger('attack');
-            $table->foreignId('protection_area_id')->constrained()->onDelete('cascade');
+            $table->unsignedSmallInteger('power');
+            $table->foreignId('attack_rates_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

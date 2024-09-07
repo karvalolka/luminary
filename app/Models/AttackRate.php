@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProtectionArea extends Model
+class AttackRate extends Model
 {
     use HasFactory;
 
-    protected $table = 'protection_areas';
+    protected $table = 'attack_rate';
     protected $guarded = false;
 
-
-    public function armors()
+    public function weapons()
     {
-        return $this->hasMany(Armor::class);
+        return $this->hasMany(Weapon::class);
     }
 }

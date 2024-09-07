@@ -12,8 +12,18 @@ class Char extends Model
     protected $table = 'chars';
     protected $guarded = false;
 
+    public function getLevelAttribute()
+    {
+        return floor(pow($this->exp / 1000, 0.5)) + 1;
+    }
+
     public function inventory()
     {
         return $this->hasMany(Inventory::class);
+    }
+
+    public function getGrade()
+    {
+        return $this->grade;
     }
 }

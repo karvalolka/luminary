@@ -18,23 +18,20 @@ class Inventory extends Model
     }
     public function addItem($item)
     {
-        for ($i = 1; $i <= 5; $i++) {
-            if (is_null($this->{"slot$i"})) {
-                $this->{"slot$i"} = $item;
-                $this->save();
-                return "Предмет добавлен в слот $i";
-            }
+        if ($this->slots()->count() < 5) {
+            $this->slots()->create(['item' => $item]);
+            return "Предмет добавлен в инвентарь";
         }
 
-        return "Все слоты заполнены!";
+        return "Инвентарь полон!";
     }
 
-    public function removeItem($slotNumber)
+    public function removeItem($slotId)
     {
-        if ($slotNumber >= 1 && $slotNumber <= 5) {
-            $this->{"slot$slotNumber"} = null;
-            $this->save();
-            return "Предмет из слота $slotNumber удален";
+        $slot = $this->slots()->find($slotId);
+        if ($slot) {
+            $slot->delete();
+            return "Предмет из слота $slotId удален";
         }
 
         return "Некорректный номер слота!";
@@ -46,4 +43,8 @@ class Inventory extends Model
         $this->save();
     }
 
+    public function slots()
+    {
+        return $this->hasMany(InventorySlot::class);
+    }
 }
