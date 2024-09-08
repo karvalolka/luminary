@@ -11,20 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inventory_slots', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
-            $table->foreignId('inventory_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+
+            $table->enum('type', ['weapon', 'armor']);
+
+            $table->foreignId('weapon_id')->nullable()->constrained('weapons')->onDelete('cascade');
+            $table->foreignId('armor_id')->nullable()->constrained('armors')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventory_slots');
+        Schema::dropIfExists('items');
     }
 };

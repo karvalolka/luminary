@@ -18,6 +18,7 @@ class Inventory extends Model
     {
         return $this->belongsTo(Char::class);
     }
+
     public function addItem($item)
     {
         if ($this->slots()->count() < self::MAX_SLOTS) {
@@ -39,11 +40,22 @@ class Inventory extends Model
         return "Некорректный номер слота!";
     }
 
-    public function changeGold($amount)
+    private function subtractGold($amount)
+    {
+        if ($this->gold < $amount) {
+            return "Недостаточно золота!";
+        } else {
+            $this->gold -= $amount;
+        }
+        $this->save();
+    }
+
+    private function addGold($amount)
     {
         $this->gold += $amount;
         $this->save();
     }
+
 
     public function slots()
     {
