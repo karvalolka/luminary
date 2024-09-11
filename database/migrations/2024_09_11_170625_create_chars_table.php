@@ -19,6 +19,8 @@ return new class extends Migration
             $table->unsignedSmallInteger('attack_power');
             $table->unsignedSmallInteger('def_power');
             $table->unsignedInteger('exp');
+            $table->unsignedBigInteger('fraction_id')->nullable();
+            $table->foreign('fraction_id')->references('id')->on('fractions')->onDelete('cascade');
             $table->timestamps();
         });
     }
