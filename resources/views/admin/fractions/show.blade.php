@@ -7,9 +7,22 @@
         <div class="row">
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">{{$fraction->name}}</h3>
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h3 class="card-title mb-0">{{ $fraction->name }}</h3>
+                        <div class="d-flex align-items-center">
+                            <a href="{{ route('admin.fraction.edit', $fraction->id) }}" class="text-success mr-2">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <form action="{{ route('admin.fraction.delete', $fraction->id) }}" method="POST" class="mb-0">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-link p-0 text-danger">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
                     </div>
+
                     <!-- /.card-header -->
                     <div class="card-body">
                         <table class="table table-bordered">

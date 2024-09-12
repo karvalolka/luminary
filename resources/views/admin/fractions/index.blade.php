@@ -41,9 +41,24 @@
                                                  style="width: {{ $percentage }}%"></div>
                                         </div>
                                     </td>
-                                    <td>
-                                        <a href="{{route('admin.fraction.show', $fraction->id)}}"><i class="far fa-eye"></i></a>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-center align-items-center gap-2">
+                                            <a href="{{ route('admin.fraction.show', $fraction->id) }}" class="btn btn-link p-1">
+                                                <i class="far fa-eye"></i>
+                                            </a>
+                                            <a href="{{ route('admin.fraction.edit', $fraction->id) }}" class="btn btn-link text-success p-1">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                            <form action="{{ route('admin.fraction.delete', $fraction->id) }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-link p-1 text-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
+
                                 </tr>
                             @endforeach
                             </tbody>
