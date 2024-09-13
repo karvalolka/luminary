@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-2 col-md-6 mb-4">
-                <a href="{{route('admin.fraction.create')}}" class="btn btn-block btn-primary">Добавить</a>
+                <a href="{{route('admin.race.create')}}" class="btn btn-block btn-primary">Добавить</a>
             </div>
             <div class="col-xl-12 col-md-6 mb-4">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Фракции</h3>
+                        <h3 class="card-title">Расы</h3>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered">
@@ -16,36 +16,25 @@
                             <tr>
                                 <th style="width: 10px">id</th>
                                 <th>Название</th>
-                                <th style="text-align: center;">Кол-во</th>
-                                <th>Контраст числинности</th>
                                 <th class="col-1" style="text-align: center;">Действия</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($fractions as $fraction)
+                            @foreach ($races as $race)
                                 <tr>
-                                    <td>{{$fraction->id}}</td>
-                                    <td>{{$fraction->name}}</td>
-                                    <td class="col-1" style="text-align: center;">{{ $fraction->char->count() }}</td>
-                                    <td>
-                                        @php
-                                            $percentage = $totalChars > 0 ? round(($fraction->characters_count / $totalChars) * 100, 2) : 0;
-                                        @endphp
-                                        {{ $percentage }}%
-                                        <div class="progress progress-xs">
-                                            <div class="progress-bar progress-bar-danger"
-                                                 style="width: {{ $percentage }}%"></div>
-                                        </div>
-                                    </td>
+                                    <td>{{$race->id}}</td>
+                                    <td>{{$race->name}}</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">
-                                            <a href="{{ route('admin.fraction.show', $fraction->id) }}" class="btn btn-link p-1">
+                                            <a href="{{ route('admin.race.show', $race->id) }}"
+                                               class="btn btn-link p-1">
                                                 <i class="far fa-eye"></i>
                                             </a>
-                                            <a href="{{ route('admin.fraction.edit', $fraction->id) }}" class="btn btn-link text-success p-1">
+                                            <a href="{{ route('admin.race.edit', $race->id) }}"
+                                               class="btn btn-link text-success p-1">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
-                                            <form action="{{ route('admin.fraction.delete', $fraction->id) }}" method="POST">
+                                            <form action="{{ route('admin.race.delete', $race->id) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-link p-1 text-danger">

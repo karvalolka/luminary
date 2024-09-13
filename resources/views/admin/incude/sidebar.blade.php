@@ -25,12 +25,12 @@
             <span>Персонажи</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('admin.race.index')}}">
             <i class="nav-icon fab fa-ravelry"></i>
             <span>Расы</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('admin.grade.index')}}">
             <i class="nav-icon fab fa-korvue"></i>
             <span>Классы</span></a>
     </li>
