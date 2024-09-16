@@ -16,14 +16,12 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <div class="form-group">
-                                <label>Выбрать фракцию</label>
-                                <select class="form-control">
-                                    @foreach($fractions as $fraction)
-                                    <option>{{$fraction->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            <label for="fraction">Выбрать фракцию</label>
+                            <select name="fraction_id" id="fraction" class="form-control">
+                                @foreach($fractions as $fraction)
+                                    <option value="{{ $fraction->id }}">{{ $fraction->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Добавить">
                     </div>

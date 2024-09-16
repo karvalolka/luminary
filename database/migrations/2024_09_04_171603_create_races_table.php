@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('races', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('fraction_id')->constrained();
+            $table->unsignedBigInteger('fraction_id')->nullable();
+            $table->foreign('fraction_id')->references('id')->on('fractions')->onDelete('set null');
             $table->timestamps();
         });
     }

@@ -23,7 +23,6 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'fraction_id' => 'required|exists:fractions,id',
         ];
     }
 }

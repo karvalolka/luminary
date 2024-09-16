@@ -26,9 +26,11 @@
                                     <td>{{$race->id}}</td>
                                     <td>{{$race->name}}</td>
                                     <td>
-                                        @foreach ($race->fractions as $fraction)
-                                            {{ $fraction->name }}@if (!$loop->last), @endif
-                                        @endforeach
+                                        @if ($race->fraction)
+                                            {{ $race->fraction->name }}
+                                        @else
+                                            Одиночки
+                                        @endif
                                     </td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">

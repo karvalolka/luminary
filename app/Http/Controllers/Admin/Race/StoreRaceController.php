@@ -11,7 +11,10 @@ class StoreRaceController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        Race::firstOrCreate($data);
+        Race::firstOrCreate([
+            'name' => $data['name'],
+            'fraction_id' => $data['fraction_id'],
+        ]);
         return redirect()->route('admin.race.index');
     }
 }
