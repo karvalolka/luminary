@@ -16,6 +16,7 @@
                             <tr>
                                 <th style="width: 10px">id</th>
                                 <th>Название</th>
+                                <th>Принадлежность</th>
                                 <th class="col-1" style="text-align: center;">Действия</th>
                             </tr>
                             </thead>
@@ -24,6 +25,11 @@
                                 <tr>
                                     <td>{{$grade->id}}</td>
                                     <td>{{$grade->name}}</td>
+                                    <td>
+                                        @foreach ($grade->races as $race)
+                                            {{ $race->name }}@if (!$loop->last), @endif
+                                        @endforeach
+                                    </td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">
                                             <a href="{{ route('admin.grade.show', $grade->id) }}"

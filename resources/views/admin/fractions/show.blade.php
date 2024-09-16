@@ -33,7 +33,7 @@
                             </tr>
                             <tr style="text-align: center;">
                                 <td class="col-2">Численность</td>
-                                <td style="text-align: center;">{{ $fraction->char->count() }}</td>
+                                <td style="text-align: center;">{{ $fraction->chars->count() }}</td>
                             </tr>
                             </tbody>
                         </table>

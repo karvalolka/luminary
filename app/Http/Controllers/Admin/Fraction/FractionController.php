@@ -11,7 +11,7 @@ class FractionController extends Controller
     public function __invoke()
     {
         $totalChars = Char::count();
-        $fractions = Fraction::withCount('char')->get();
+        $fractions = Fraction::withCount('chars')->get();
         return view('admin.fractions.index', compact('fractions', 'totalChars'));
     }
 }

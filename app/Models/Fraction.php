@@ -16,7 +16,7 @@ class Fraction extends Model
     {
         return $this->hasMany(Race::class);
     }
-    public function char()
+    public function chars()
     {
         return $this->hasMany(Char::class);
     }

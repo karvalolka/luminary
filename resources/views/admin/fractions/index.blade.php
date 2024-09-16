@@ -26,7 +26,7 @@
                                 <tr>
                                     <td>{{$fraction->id}}</td>
                                     <td>{{$fraction->name}}</td>
-                                    <td class="col-1" style="text-align: center;">{{ $fraction->char->count() }}</td>
+                                    <td class="col-1" style="text-align: center;">{{ $fraction->chars->count() }}</td>
                                     <td>
                                         @php
                                             $percentage = $totalChars > 0 ? round(($fraction->characters_count / $totalChars) * 100, 2) : 0;
