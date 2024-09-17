@@ -11,7 +11,10 @@ class StoreGradeController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        Grade::firstOrCreate($data);
+        $grade = Grade::firstOrCreate([
+            'name' => $data['name'],
+        ]);
+        $grade->races()->sync($data['race']);
         return redirect()->route('admin.grade.index');
     }
 }

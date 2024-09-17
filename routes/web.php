@@ -1,12 +1,21 @@
 <?php
 
+use App\Http\Controllers\Admin\User\{CreateUserController,
+    DeleteUserController,
+    EditUserController,
+    ShowUserController,
+    StoreUserController,
+    UpdateUserController,
+    UserController
+};
 use App\Http\Controllers\Admin\Race\{CreateRaceController,
     DeleteRaceController,
     EditRaceController,
     RaceController,
     ShowRaceController,
     StoreRaceController,
-    UpdateRaceController};
+    UpdateRaceController
+};
 
 use App\Http\Controllers\Admin\Grade\{CreateGradeController,
     DeleteGradeController,
@@ -14,7 +23,8 @@ use App\Http\Controllers\Admin\Grade\{CreateGradeController,
     GradeController,
     ShowGradeController,
     StoreGradeController,
-    UpdateGradeController};
+    UpdateGradeController
+};
 
 use App\Http\Controllers\Admin\Fraction\{CreateFractionController,
     DeleteFractionController,
@@ -22,7 +32,8 @@ use App\Http\Controllers\Admin\Fraction\{CreateFractionController,
     FractionController,
     ShowFractionController,
     StoreFractionController,
-    UpdateFractionController};
+    UpdateFractionController
+};
 use App\Http\Controllers\Admin\Main\AdminIndexController;
 use App\Http\Controllers\Main\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -31,7 +42,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, '__invoke']);
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', [AdminIndexController::class, '__invoke']);
+    Route::get('/', [AdminIndexController::class, '__invoke'])->name('admin.main.index');
     Route::prefix('fraction')->group(function () {
         Route::get('/', [FractionController::class, '__invoke'])->name('admin.fraction.index');
         Route::get('/create', [CreateFractionController::class, '__invoke'])->name('admin.fraction.create');
@@ -58,6 +69,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/{race}/edit', [EditRaceController::class, '__invoke'])->name('admin.race.edit');
         Route::patch('/{race}', [UpdateRaceController::class, '__invoke'])->name('admin.race.update');
         Route::delete('/{race}', [DeleteRaceController::class, '__invoke'])->name('admin.race.delete');
+    });
+    Route::prefix('user')->group(function () {
+        Route::get('/', [UserController::class, '__invoke'])->name('admin.user.index');
+        Route::get('/create', [CreateUserController::class, '__invoke'])->name('admin.user.create');
+        Route::post('/', [StoreUserController::class, '__invoke'])->name('admin.user.store');
+        Route::get('/{user}', [ShowUserController::class, '__invoke'])->name('admin.user.show');
+        Route::get('/{user}/edit', [EditUserController::class, '__invoke'])->name('admin.user.edit');
+        Route::patch('/{user}', [UpdateUserController::class, '__invoke'])->name('admin.user.update');
+        Route::delete('/{user}', [DeleteUserController::class, '__invoke'])->name('admin.user.delete');
     });
 });
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Grade;
+namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,8 +23,6 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'race' => 'required|array',
-            'race.*' => 'exists:races,id',
         ];
     }
 }

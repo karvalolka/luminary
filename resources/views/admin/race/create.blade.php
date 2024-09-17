@@ -18,6 +18,7 @@
                         <div class="form-group">
                             <label for="fraction">Выбрать фракцию</label>
                             <select name="fraction_id" id="fraction" class="form-control">
+                                <option value="" selected>Не выбрано</option>
                                 @foreach($fractions as $fraction)
                                     <option value="{{ $fraction->id }}">{{ $fraction->name }}</option>
                                 @endforeach
