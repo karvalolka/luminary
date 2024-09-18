@@ -9,7 +9,7 @@ class AttackRate extends Model
 {
     use HasFactory;
 
-    protected $table = 'attack_rate';
+    protected $table = 'attack_rates';
     protected $guarded = false;
 
     public function weapons()

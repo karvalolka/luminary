@@ -1,5 +1,42 @@
 <?php
 
+use App\Http\Controllers\Admin\AttackRate\{AttackRateController,
+    CreateAttackRateController,
+    DeleteAttackRateController,
+    EditAttackRateController,
+    ShowAttackRateController,
+    StoreAttackRateController,
+    UpdateAttackRateController};
+use App\Http\Controllers\Admin\Item\{CreateItemController,
+    DeleteItemController,
+    EditItemController,
+    ItemController,
+    ShowItemController,
+    StoreItemController,
+    UpdateItemController};
+use App\Http\Controllers\Admin\ProtectionArea\{CreateProtectionAreaController,
+    DeleteProtectionAreaController,
+    EditProtectionAreaController,
+    ProtectionAreaController,
+    ShowProtectionAreaController,
+    StoreProtectionAreaController,
+    UpdateProtectionAreaController};
+use App\Http\Controllers\Admin\Armor\{ArmorController,
+    CreateArmorController,
+    DeleteArmorController,
+    EditArmorController,
+    ShowArmorController,
+    StoreArmorController,
+    UpdateArmorController
+};
+use App\Http\Controllers\Admin\Weapon\{CreateWeaponController,
+    DeleteWeaponController,
+    EditWeaponController,
+    ShowWeaponController,
+    StoreWeaponController,
+    UpdateWeaponController,
+    WeaponController
+};
 use App\Http\Controllers\Admin\User\{CreateUserController,
     DeleteUserController,
     EditUserController,
@@ -78,6 +115,51 @@ Route::prefix('admin')->group(function () {
         Route::get('/{user}/edit', [EditUserController::class, '__invoke'])->name('admin.user.edit');
         Route::patch('/{user}', [UpdateUserController::class, '__invoke'])->name('admin.user.update');
         Route::delete('/{user}', [DeleteUserController::class, '__invoke'])->name('admin.user.delete');
+    });
+    Route::prefix('weapon')->group(function () {
+        Route::get('/', [WeaponController::class, '__invoke'])->name('admin.weapon.index');
+        Route::get('/create', [CreateWeaponController::class, '__invoke'])->name('admin.weapon.create');
+        Route::post('/', [StoreWeaponController::class, '__invoke'])->name('admin.weapon.store');
+        Route::get('/{weapon}', [ShowWeaponController::class, '__invoke'])->name('admin.weapon.show');
+        Route::get('/{weapon}/edit', [EditWeaponController::class, '__invoke'])->name('admin.weapon.edit');
+        Route::patch('/{weapon}', [UpdateWeaponController::class, '__invoke'])->name('admin.weapon.update');
+        Route::delete('/{weapon}', [DeleteWeaponController::class, '__invoke'])->name('admin.weapon.delete');
+    });
+    Route::prefix('armor')->group(function () {
+        Route::get('/', [ArmorController::class, '__invoke'])->name('admin.armor.index');
+        Route::get('/create', [CreateArmorController::class, '__invoke'])->name('admin.armor.create');
+        Route::post('/', [StoreArmorController::class, '__invoke'])->name('admin.armor.store');
+        Route::get('/{armor}', [ShowArmorController::class, '__invoke'])->name('admin.armor.show');
+        Route::get('/{armor}/edit', [EditArmorController::class, '__invoke'])->name('admin.armor.edit');
+        Route::patch('/{armor}', [UpdateArmorController::class, '__invoke'])->name('admin.armor.update');
+        Route::delete('/{armor}', [DeleteArmorController::class, '__invoke'])->name('admin.armor.delete');
+    });
+    Route::prefix('protectionArea')->group(function () {
+        Route::get('/', [ProtectionAreaController::class, '__invoke'])->name('admin.protectionArea.index');
+        Route::get('/create', [CreateProtectionAreaController::class, '__invoke'])->name('admin.protectionArea.create');
+        Route::post('/', [StoreProtectionAreaController::class, '__invoke'])->name('admin.protectionArea.store');
+        Route::get('/{protectionArea}', [ShowProtectionAreaController::class, '__invoke'])->name('admin.protectionArea.show');
+        Route::get('/{protectionArea}/edit', [EditProtectionAreaController::class, '__invoke'])->name('admin.protectionArea.edit');
+        Route::patch('/{protectionArea}', [UpdateProtectionAreaController::class, '__invoke'])->name('admin.protectionArea.update');
+        Route::delete('/{protectionArea}', [DeleteProtectionAreaController::class, '__invoke'])->name('admin.protectionArea.delete');
+    });
+    Route::prefix('attackRate')->group(function () {
+        Route::get('/', [AttackRateController::class, '__invoke'])->name('admin.attackRate.index');
+        Route::get('/create', [CreateAttackRateController::class, '__invoke'])->name('admin.attackRate.create');
+        Route::post('/', [StoreAttackRateController::class, '__invoke'])->name('admin.attackRate.store');
+        Route::get('/{attackRate}', [ShowAttackRateController::class, '__invoke'])->name('admin.attackRate.show');
+        Route::get('/{attackRate}/edit', [EditAttackRateController::class, '__invoke'])->name('admin.attackRate.edit');
+        Route::patch('/{attackRate}', [UpdateAttackRateController::class, '__invoke'])->name('admin.attackRate.update');
+        Route::delete('/{attackRate}', [DeleteAttackRateController::class, '__invoke'])->name('admin.attackRate.delete');
+    });
+    Route::prefix('item')->group(function () {
+        Route::get('/', [ItemController::class, '__invoke'])->name('admin.item.index');
+        Route::get('/create', [CreateItemController::class, '__invoke'])->name('admin.item.create');
+        Route::post('/', [StoreItemController::class, '__invoke'])->name('admin.item.store');
+        Route::get('/{item}', [ShowItemController::class, '__invoke'])->name('admin.item.show');
+        Route::get('/{item}/edit', [EditItemController::class, '__invoke'])->name('admin.item.edit');
+        Route::patch('/{item}', [UpdateItemController::class, '__invoke'])->name('admin.item.update');
+        Route::delete('/{item}', [DeleteItemController::class, '__invoke'])->name('admin.item.delete');
     });
 });
 

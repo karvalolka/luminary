@@ -16,4 +16,9 @@ class Weapon extends Model
     {
         return $this->belongsTo(ProtectionArea::class);
     }
+
+    public function attackRate()
+    {
+        return $this->belongsTo(AttackRate::class, 'attack_rates_id');
+    }
 }

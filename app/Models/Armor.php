@@ -14,6 +14,6 @@ class Armor extends Model
 
     public function protectionArea()
     {
-        return $this->belongsTo(ProtectionArea::class);
+        return $this->belongsTo(ProtectionArea::class, 'protection_area_id');
     }
 }

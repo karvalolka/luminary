@@ -16,7 +16,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Персонаж
     </div>
     <!-- Nav Item - Tables -->
     <li class="nav-item">
@@ -40,8 +40,56 @@
             <span>Фракции</span></a>
     </li>
 
+    <hr class="sidebar-divider my-0">
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Инвентарь
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.weapon.index')}}">
+            <i class="nav-icon fas fa-khanda"></i>
+            <span>Оружие</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.armor.index')}}">
+            <i class="nav-icon fas fa-shield-alt"></i>
+            <span>Броня</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.item.index')}}">
+            <i class="nav-icon fas fa-briefcase"></i>
+            <span>Прочие итемы</span></a>
+    </li>
+
+    <hr class="sidebar-divider my-0">
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Прочее
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.protectionArea.index')}}">
+            <i class="nav-icon fas fa-user-shield"></i>
+            <span>Области защиты</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.attackRate.index')}}">
+            <i class="nav-icon fas fa-wrench"></i>
+            <span>Типы атаки</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
