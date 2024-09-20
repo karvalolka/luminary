@@ -23,6 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'type' => 'required|in:weapon,armor'
         ];
     }
 }

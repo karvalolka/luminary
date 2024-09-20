@@ -27,7 +27,7 @@
                                     <td>{{$user->id}}</td>
                                     <td>{{$user->name}}</td>
                                     <td class="col-1">#</td>
-                                    <td>#</td>
+                                    <td>{{$user->email}}</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">
                                             <a href="{{ route('admin.user.show', $user->id) }}" class="btn btn-link p-1">

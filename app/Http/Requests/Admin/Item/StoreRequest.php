@@ -23,6 +23,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'type' => 'required|in:weapon,armor'
         ];
     }
 }

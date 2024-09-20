@@ -9,40 +9,56 @@
                 <form action="{{route('admin.user.store')}}" method="POST" class="col-xl-12 col-md-6 mb-4">
                     @csrf
                     <div class="form-group">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Введите Ник">
-                            @error('name')
-                            <div class="text-danger">Заполни поле</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="fraction">Выбрать фракцию</label>
-                            <select name="fraction_id" id="fraction" class="form-control">
-                                <option value="" selected>Не выбрано</option>
-                                @foreach($fractions as $fraction)
-                                    <option value="{{ $fraction->id }}">{{ $fraction->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group" id="race-container" style="display: none;">
-                            <label for="race">Выбрать расу</label>
-                            <select name="race_id" id="race" class="form-control">
-                                <option value="">Сначала выберите фракцию</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group" id="grade-container" style="display: none;">
-                            <label for="grade">Выбрать Класс</label>
-                            <select name="grade_id" id="grade" class="form-control">
-                                <option value="">Сначала выберите расу</option>
-                            </select>
-                        </div>
-
-                        <input type="submit" class="btn btn-primary" value="Добавить">
                     </div>
-                </form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" placeholder="Введите Ник">
+                        @error('name')
+                        <div class="text-danger">Заполни поле</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" placeholder="Введите Email">
+                        @error('email')
+                        <div class="text-danger">{{$message}}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="Введите пароль">
+                        @error('password')
+                        <div class="text-danger">{{$message}}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fraction">Выбрать фракцию</label>
+                        <select name="fraction_id" id="fraction" class="form-control">
+                            <option value="" selected>Не выбрано</option>
+                            @foreach($fractions as $fraction)
+                                <option value="{{ $fraction->id }}">{{ $fraction->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group" id="race-container" style="display: none;">
+                        <label for="race">Выбрать расу</label>
+                        <select name="race_id" id="race" class="form-control">
+                            <option value="">Сначала выберите фракцию</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="grade-container" style="display: none;">
+                        <label for="grade">Выбрать Класс</label>
+                        <select name="grade_id" id="grade" class="form-control">
+                            <option value="">Сначала выберите расу</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" value="Добавить">
             </div>
+            </form>
         </div>
+    </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

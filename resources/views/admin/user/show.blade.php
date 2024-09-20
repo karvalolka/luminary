@@ -37,7 +37,7 @@
                             </tr>
                             <tr style="text-align: center;">
                                 <td class="col-2">Email</td>
-                                <td style="text-align: center;">#</td>
+                                <td style="text-align: center;">{{$user->email}}</td>
                             </tr>
                             </tbody>
                         </table>
