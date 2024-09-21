@@ -18,9 +18,15 @@
     <div class="sidebar-heading">
         Персонаж
     </div>
-    <!-- Nav Item - Tables -->
+
     <li class="nav-item">
         <a class="nav-link" href="{{route('admin.user.index')}}">
+            <i class="nav-icon fas fa-users"></i>
+            <span>Пользователи</span></a>
+    </li>
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('admin.char.index')}}">
             <i class="nav-icon far fa-id-card"></i>
             <span>Персонажи</span></a>
     </li>

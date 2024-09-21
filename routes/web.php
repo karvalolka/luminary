@@ -6,21 +6,24 @@ use App\Http\Controllers\Admin\AttackRate\{AttackRateController,
     EditAttackRateController,
     ShowAttackRateController,
     StoreAttackRateController,
-    UpdateAttackRateController};
+    UpdateAttackRateController
+};
 use App\Http\Controllers\Admin\Item\{CreateItemController,
     DeleteItemController,
     EditItemController,
     ItemController,
     ShowItemController,
     StoreItemController,
-    UpdateItemController};
+    UpdateItemController
+};
 use App\Http\Controllers\Admin\ProtectionArea\{CreateProtectionAreaController,
     DeleteProtectionAreaController,
     EditProtectionAreaController,
     ProtectionAreaController,
     ShowProtectionAreaController,
     StoreProtectionAreaController,
-    UpdateProtectionAreaController};
+    UpdateProtectionAreaController
+};
 use App\Http\Controllers\Admin\Armor\{ArmorController,
     CreateArmorController,
     DeleteArmorController,
@@ -37,13 +40,21 @@ use App\Http\Controllers\Admin\Weapon\{CreateWeaponController,
     UpdateWeaponController,
     WeaponController
 };
+use App\Http\Controllers\Admin\Char\{CharController,
+    CreateCharController,
+    DeleteCharController,
+    EditCharController,
+    ShowCharController,
+    StoreCharController,
+    UpdateCharController,
+};
 use App\Http\Controllers\Admin\User\{CreateUserController,
     DeleteUserController,
     EditUserController,
     ShowUserController,
     StoreUserController,
     UpdateUserController,
-    UserController
+    UserController,
 };
 use App\Http\Controllers\Admin\Race\{CreateRaceController,
     DeleteRaceController,
@@ -107,14 +118,14 @@ Route::prefix('admin')->group(function () {
         Route::patch('/{race}', [UpdateRaceController::class, '__invoke'])->name('admin.race.update');
         Route::delete('/{race}', [DeleteRaceController::class, '__invoke'])->name('admin.race.delete');
     });
-    Route::prefix('user')->group(function () {
-        Route::get('/', [UserController::class, '__invoke'])->name('admin.user.index');
-        Route::get('/create', [CreateUserController::class, '__invoke'])->name('admin.user.create');
-        Route::post('/', [StoreUserController::class, '__invoke'])->name('admin.user.store');
-        Route::get('/{user}', [ShowUserController::class, '__invoke'])->name('admin.user.show');
-        Route::get('/{user}/edit', [EditUserController::class, '__invoke'])->name('admin.user.edit');
-        Route::patch('/{user}', [UpdateUserController::class, '__invoke'])->name('admin.user.update');
-        Route::delete('/{user}', [DeleteUserController::class, '__invoke'])->name('admin.user.delete');
+    Route::prefix('char')->group(function () {
+        Route::get('/', [CharController::class, '__invoke'])->name('admin.char.index');
+        Route::get('/create', [CreateCharController::class, '__invoke'])->name('admin.char.create');
+        Route::post('/', [StoreCharController::class, '__invoke'])->name('admin.char.store');
+        Route::get('/{char}', [ShowCharController::class, '__invoke'])->name('admin.char.show');
+        Route::get('/{char}/edit', [EditCharController::class, '__invoke'])->name('admin.char.edit');
+        Route::patch('/{char}', [UpdateCharController::class, '__invoke'])->name('admin.char.update');
+        Route::delete('/{char}', [DeleteCharController::class, '__invoke'])->name('admin.char.delete');
     });
     Route::prefix('weapon')->group(function () {
         Route::get('/', [WeaponController::class, '__invoke'])->name('admin.weapon.index');
@@ -160,6 +171,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/{item}/edit', [EditItemController::class, '__invoke'])->name('admin.item.edit');
         Route::patch('/{item}', [UpdateItemController::class, '__invoke'])->name('admin.item.update');
         Route::delete('/{item}', [DeleteItemController::class, '__invoke'])->name('admin.item.delete');
+    });
+    Route::prefix('user')->group(function () {
+        Route::get('/', [UserController::class, '__invoke'])->name('admin.user.index');
+        Route::get('/create', [CreateUserController::class, '__invoke'])->name('admin.user.create');
+        Route::post('/', [StoreUserController::class, '__invoke'])->name('admin.user.store');
+        Route::get('/{user}', [ShowUserController::class, '__invoke'])->name('admin.user.show');
+        Route::get('/{user}/edit', [EditUserController::class, '__invoke'])->name('admin.user.edit');
+        Route::patch('/{user}', [UpdateUserController::class, '__invoke'])->name('admin.user.update');
+        Route::delete('/{user}', [DeleteUserController::class, '__invoke'])->name('admin.user.delete');
     });
 });
 
