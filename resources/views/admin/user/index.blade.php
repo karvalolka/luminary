@@ -15,9 +15,8 @@
                             <thead>
                             <tr>
                                 <th style="width: 10px">id</th>
-                                <th>Ник</th>
-                                <th>Роль</th>
                                 <th>email</th>
+                                <th>Роль</th>
                                 <th class="col-1" style="text-align: center;">Действия</th>
                             </tr>
                             </thead>
@@ -25,9 +24,8 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <td>{{$user->id}}</td>
-                                    <td>{{$user->name}}</td>
-                                    <td class="col-1">#</td>
                                     <td>{{$user->email}}</td>
+                                    <td class="col-1">#</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">
                                             <a href="{{ route('admin.user.show', $user->id) }}" class="btn btn-link p-1">

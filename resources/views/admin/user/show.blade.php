@@ -28,16 +28,12 @@
                                 <td>{{$user->id}}</td>
                             </tr>
                             <tr style="text-align: center;">
-                                <td class="col-2">Ник</td>
-                                <td>{{$user->name}}</td>
+                                <td class="col-2">Email</td>
+                                <td style="text-align: center;">{{$user->email}}</td>
                             </tr>
                             <tr style="text-align: center;">
                                 <td class="col-2">Роль</td>
                                 <td style="text-align: center;">#</td>
-                            </tr>
-                            <tr style="text-align: center;">
-                                <td class="col-2">Email</td>
-                                <td style="text-align: center;">{{$user->email}}</td>
                             </tr>
                             </tbody>
                         </table>
