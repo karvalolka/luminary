@@ -7,7 +7,7 @@
                     <h1 class="h3 mb-0 text-gray-800">Редактирование Оружия</h1>
                 </div>
                 <form action="{{route('admin.weapon.update', $weapon->id)}}" method="POST"
-                      class="col-xl-12 col-md-6 mb-4">
+                      class="col-xl-12 col-md-6 mb-4" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
@@ -41,6 +41,23 @@
                             <div class="text-danger">Заполни поле</div>
                             @enderror
                         </div>
+
+                        <div class="form-group">
+                            <label for="image">Добавить изображение</label>
+                            <div>
+                                <img class="col-2 mb-2" src="{{asset('storage/' . $weapon->image)}}" alt="image">
+                            </div>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="image" name="image">
+                                    <label class="custom-file-label">Выберите изображение</label>
+                                </div>
+                                @error('image')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                        </div>
+
                         <input type="submit" class="btn btn-primary" value="Обновить">
                     </div>
                 </form>

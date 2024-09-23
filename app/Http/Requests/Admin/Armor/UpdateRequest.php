@@ -24,6 +24,8 @@ class UpdateRequest extends FormRequest
         return [
             'name' => 'required|string',
             'power' => 'required|numeric|min:1',
-            'protection_area_id' => 'required|exists:protection_areas,id',        ];
+            'protection_area_id' => 'required|exists:protection_areas,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ];
     }
 }

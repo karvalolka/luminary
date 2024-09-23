@@ -40,8 +40,9 @@
                                 <td style="text-align: center;">{{$armor->power}}</td>
                             </tr>
                             <tr style="text-align: center;">
-                                <td class="col-2">Вид</td>
-                                <td style="text-align: center;">#</td>
+                                <td class="col-2" style="text-align: center; vertical-align: middle;">Вид</td>
+                                <td style="text-align: center;"><img class="col-10" src="{{asset('storage/' . $armor->image)}}" alt="image">
+                                </td>
                             </tr>
                             </tbody>
                         </table>

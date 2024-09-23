@@ -25,6 +25,7 @@ class UpdateRequest extends FormRequest
             'name' => 'required|string',
             'power' => 'required|numeric|min:1',
             'attack_rates_id' => 'required|exists:attack_rates,id',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 }
