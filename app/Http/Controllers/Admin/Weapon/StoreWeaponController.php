@@ -12,7 +12,9 @@ class StoreWeaponController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        $data['image'] = Storage::disk('public')->put('/images', $data['image']);
+        if ($request->hasFile('image')) {
+            $data['image'] = Storage::disk('public')->put('/images', $request->file('image'));
+        }
         Weapon::firstOrCreate($data);
         return redirect()->route('admin.weapon.index');
     }

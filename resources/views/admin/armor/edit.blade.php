@@ -42,16 +42,19 @@
                         <div class="form-group">
                             <label for="image">Добавить изображение</label>
                             <div>
-                                <img class="col-2 mb-2" src="{{asset('storage/' . $armor->image)}}" alt="image">
+                                <td style="text-align: center;">
+                                    @if ($armor->image && Storage::exists('public/' . $armor->image))
+                                        <img class="col-10" src="{{ asset('storage/' . $armor->image) }}" alt="image">
+                                    @else
+                                        <span>Нет изображения</span>
+                                    @endif
+                                </td>
                             </div>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="image" name="image">
                                     <label class="custom-file-label">Выберите изображение</label>
                                 </div>
-                                @error('image')
-                                <div class="text-danger">{{$message}}</div>
-                                @enderror
                             </div>
                         </div>
 

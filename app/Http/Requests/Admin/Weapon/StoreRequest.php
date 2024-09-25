@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
         return [
             'name' => 'required|string',
             'power' => 'required|numeric|min:1',
-            'attack_rate_id' => 'required|exists:attack_rates,id',
+            'attack_rates_id' => 'required|exists:attack_rates,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }

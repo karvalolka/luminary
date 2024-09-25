@@ -31,7 +31,7 @@
                                     <option value="{{ $protectionArea->id }}">{{ $protectionArea->area }}</option>
                                 @endforeach
                             </select>
-                            @error('attack_rates_id')
+                            @error('protection_area_id')
                             <div class="text-danger">Заполни поле</div>
                             @enderror
                         </div>
@@ -44,9 +44,6 @@
                                     <label class="custom-file-label">Выберите изображение</label>
                                 </div>
                             </div>
-                            @error('image')
-                            <div class="text-danger">{{$message}}</div>
-                            @enderror
                         </div>
                         <input type="submit" class="btn btn-primary" value="Добавить">
                     </div>

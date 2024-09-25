@@ -12,11 +12,6 @@ class Weapon extends Model
     protected $table = 'weapons';
     protected $guarded = false;
 
-    public function protectionArea()
-    {
-        return $this->belongsTo(ProtectionArea::class);
-    }
-
     public function attackRate()
     {
         return $this->belongsTo(AttackRate::class, 'attack_rates_id');

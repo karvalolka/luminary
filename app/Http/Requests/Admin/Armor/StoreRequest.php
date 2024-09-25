@@ -23,9 +23,9 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'power' => 'required|numeric|min:1',
+            'power' => 'required|integer|min:1',
             'protection_area_id' => 'required|exists:protection_areas,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
 }

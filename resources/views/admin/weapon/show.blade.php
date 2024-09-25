@@ -41,7 +41,12 @@
                             </tr>
                             <tr style="text-align: center;">
                                 <td class="col-2" style="text-align: center; vertical-align: middle;">Вид</td>
-                                <td style="text-align: center;"><img class="col-10" src="{{asset('storage/' . $weapon->image)}}" alt="image">
+                                <td style="text-align: center;">
+                                    @if ($weapon->image && Storage::exists('public/' . $weapon->image))
+                                        <img class="col-10" src="{{ asset('storage/' . $weapon->image) }}" alt="image">
+                                    @else
+                                        <span>Нет изображения</span>
+                                    @endif
                                 </td>
                             </tr>
                             </tbody>

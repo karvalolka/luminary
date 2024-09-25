@@ -28,12 +28,16 @@
                                 <td>{{$user->id}}</td>
                             </tr>
                             <tr style="text-align: center;">
+                                <td class="col-2">Ник</td>
+                                <td>{{$user->name}}</td>
+                            </tr>
+                            <tr style="text-align: center;">
                                 <td class="col-2">Email</td>
                                 <td style="text-align: center;">{{$user->email}}</td>
                             </tr>
                             <tr style="text-align: center;">
                                 <td class="col-2">Роль</td>
-                                <td style="text-align: center;">#</td>
+                                <td style="text-align: center;">{{\App\Models\User::getRoles()[$user->role]}}</td>
                             </tr>
                             </tbody>
                         </table>
