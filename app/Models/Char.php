@@ -26,4 +26,9 @@ class Char extends Model
     {
         return $this->grade;
     }
+
+    public function fraction()
+    {
+        return $this->belongsTo(Fraction::class);
+    }
 }
