@@ -44,6 +44,9 @@
                                     <label class="custom-file-label">Выберите изображение</label>
                                 </div>
                             </div>
+                            @error('image')
+                            <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <input type="submit" class="btn btn-primary" value="Добавить">
                     </div>

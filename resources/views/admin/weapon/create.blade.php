@@ -43,6 +43,9 @@
                                     <input type="file" class="custom-file-input" name="image">
                                     <label class="custom-file-label">Выберите изображение</label>
                                 </div>
+                                @error('image')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
                             </div>
                         </div>
 
