@@ -84,12 +84,13 @@ use App\Http\Controllers\Admin\Fraction\{CreateFractionController,
 };
 use App\Http\Controllers\Admin\Main\AdminIndexController;
 use App\Http\Controllers\Main\IndexController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [IndexController::class, '__invoke']);
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminIndexController::class, '__invoke'])->name('admin.main.index');
     Route::prefix('fraction')->group(function () {
         Route::get('/', [FractionController::class, '__invoke'])->name('admin.fraction.index');
