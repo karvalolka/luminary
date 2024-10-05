@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Personal\Main\PersonalIndexController;
 use App\Http\Controllers\Admin\AttackRate\{AttackRateController,
     CreateAttackRateController,
     DeleteAttackRateController,
@@ -48,6 +49,14 @@ use App\Http\Controllers\Admin\Char\{CharController,
     StoreCharController,
     UpdateCharController,
 };
+use App\Http\Controllers\Personal\Char\{CharController as PCharController,
+    CreateCharController as PCreateCharController,
+    DeleteCharController as PDeleteCharController,
+    EditCharController as PEditCharController,
+    ShowCharController as PShowCharController,
+    StoreCharController as PStoreCharController,
+    UpdateCharController as PUpdateCharController,
+};
 use App\Http\Controllers\Admin\User\{CreateUserController,
     DeleteUserController,
     EditUserController,
@@ -90,8 +99,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, '__invoke']);
 
+Route::prefix('personal')->middleware(['auth'])->group(function () {
+    Route::get('/', [PersonalIndexController::class, '__invoke'])->name('personal.main.index');
+    Route::prefix('char')->group(function () {
+        Route::get('/', [PCharController::class, '__invoke'])->name('personal.char.index');
+        Route::get('/create', [PCreateCharController::class, '__invoke'])->name('personal.char.create');
+        Route::post('/', [PStoreCharController::class, '__invoke'])->name('personal.char.store');
+        Route::get('/{char}', [PShowCharController::class, '__invoke'])->name('personal.char.show');
+        Route::get('/{char}/edit', [PEditCharController::class, '__invoke'])->name('personal.char.edit');
+        Route::patch('/{char}', [PUpdateCharController::class, '__invoke'])->name('personal.char.update');
+        Route::delete('/{char}', [PDeleteCharController::class, '__invoke'])->name('personal.char.delete');
+    });
+});
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [AdminIndexController::class, '__invoke'])->name('admin.main.index');
+
     Route::prefix('fraction')->group(function () {
         Route::get('/', [FractionController::class, '__invoke'])->name('admin.fraction.index');
         Route::get('/create', [CreateFractionController::class, '__invoke'])->name('admin.fraction.create');
@@ -183,5 +205,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::delete('/{user}', [DeleteUserController::class, '__invoke'])->name('admin.user.delete');
     });
 });
+
 
 Auth::routes();

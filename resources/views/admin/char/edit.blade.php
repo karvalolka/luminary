@@ -1,6 +1,21 @@
 @extends('admin.layouts.main')
 @section('content')
     <div class="container-fluid">
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    <nav aria-label="Breadcrumb">
+                        <ol style="display: inline; padding: 0; margin: 0; list-style: none;">
+                            <li style="display: inline; margin-left: 10px;"><a href="{{route('admin.main.index')}}">Главная</a>
+                            </li>
+                            <li style="display: inline; margin-left: 10px;"><a
+                                    href="{{route('admin.char.index')}}">Персонажи</a></li>
+
+                        </ol>
+                    </nav>
+                </td>
+            </tr>
+        </table>
         <div class="row">
             <div>
                 <div class="col-xl-12 col-md-6 mb-4">
