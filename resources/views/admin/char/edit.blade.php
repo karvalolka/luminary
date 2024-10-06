@@ -19,21 +19,18 @@
         <div class="row">
             <div>
                 <div class="col-xl-12 col-md-6 mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Редактирование Пользователя</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Редактирование персонажа</h1>
                 </div>
-                <form action="{{route('admin.char.update', $char->id)}}" method="POST" class="col-xl-12 col-md-6 mb-4">
+                <form action="{{ route('admin.char.update', $char->id) }}" method="POST" class="col-xl-12 col-md-6 mb-4">
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Введите Ник"
-                            value="{{$char->name}}">
-                            @error('name')
-                            <div class="text-danger">Заполни поле</div>
-                            @enderror
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="Обновить">
+                        <input type="text" class="form-control" name="nickname" placeholder="Введите Ник" value="{{ old('nickname', $char->nickname) }}">
+                        @error('nickname')
+                        <div class="text-danger">Заполни поле</div>
+                        @enderror
                     </div>
+                    <input type="submit" class="btn btn-primary" value="Обновить">
                 </form>
             </div>
         </div>

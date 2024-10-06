@@ -12,6 +12,7 @@ class Char extends Model
     protected $table = 'chars';
     protected $guarded = false;
 
+
     public function getLevelAttribute()
     {
         return floor(pow($this->exp / 1000, 0.5)) + 1;
@@ -31,4 +32,19 @@ class Char extends Model
     {
         return $this->belongsTo(Fraction::class);
     }
+
+    public function grade()
+    {
+        return $this->belongsTo(Grade::class);
+    }
+
+    public function race()
+    {
+        return $this->belongsTo(Race::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

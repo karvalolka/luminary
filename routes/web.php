@@ -97,7 +97,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [IndexController::class, '__invoke']);
+Route::get('/', [IndexController::class, '__invoke'])->name('home');
 
 Route::prefix('personal')->middleware(['auth'])->group(function () {
     Route::get('/', [PersonalIndexController::class, '__invoke'])->name('personal.main.index');

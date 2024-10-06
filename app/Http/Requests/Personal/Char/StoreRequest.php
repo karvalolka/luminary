@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Char;
+namespace App\Http\Requests\Personal\Char;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,6 +23,9 @@ class UpdateRequest extends FormRequest
     {
         return [
             'nickname' => 'required|string|unique:chars,nickname',
+            'fraction_id' => 'required|exists:fractions,id',
+            'race_id' => 'required|exists:races,id',
+            'grade_id' => 'required|exists:grades,id',
         ];
     }
 }

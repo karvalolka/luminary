@@ -28,8 +28,8 @@
                         <div class="form-group">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Введите Ник">
-                            @error('name')
+                            <input type="text" class="form-control" name="nickname" placeholder="Введите Ник">
+                            @error('nickname')
                             <div class="text-danger">Заполни поле</div>
                             @enderror
                         </div>

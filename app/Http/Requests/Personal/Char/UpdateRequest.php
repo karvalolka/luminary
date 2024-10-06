@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Char;
+namespace App\Http\Requests\Personal\Char;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,7 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nickname' => 'required|string|unique:chars,nickname',
+            'nickname' => 'required|string',
         ];
     }
 }

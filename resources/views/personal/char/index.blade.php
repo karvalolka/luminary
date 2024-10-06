@@ -32,6 +32,7 @@
                                 <th>Ник</th>
                                 <th>Раса</th>
                                 <th>Класс</th>
+                                <th>Фракция</th>
                                 <th class="col-1" style="text-align: center;">Действия</th>
                             </tr>
                             </thead>
@@ -39,9 +40,10 @@
                             @foreach ($chars as $char)
                                 <tr>
                                     <td>{{$char->id}}</td>
-                                    <td>{{$char->name}}</td>
-                                    <td class="col-1">{{$char->race}}</td>
-                                    <td>{{$char->grade}}</td>
+                                    <td>{{$char->nickname}}</td>
+                                    <td>{{$char->race->name}}</td>
+                                    <td>{{$char->grade->name}}</td>
+                                    <td>{{$char->fraction->name}}</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center align-items-center gap-2">
                                             <a href="{{ route('personal.char.show', $char->id) }}" class="btn btn-link p-1">
