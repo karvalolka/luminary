@@ -12,6 +12,6 @@ class UpdateCharController extends Controller
     {
         $data = $request->validated();
         $char->update($data);
-        return view('admin.chars.show', compact('char'));
+        return view('admin.char.show', compact('char'));
     }
 }

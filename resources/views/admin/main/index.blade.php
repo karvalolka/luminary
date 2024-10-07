@@ -2,6 +2,17 @@
 @section('content')
     <div class="container-fluid">
         <!-- Page Heading -->
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align: right;">
+                    <nav aria-label="Breadcrumb">
+                        <ol style="display: inline; padding: 0; margin: 0; list-style: none;">
+                            <li style="display: inline; margin-left: 10px;">Главная</li>
+                        </ol>
+                    </nav>
+                </td>
+            </tr>
+        </table>
 
         <!-- Персонаж -->
         <hr class="sidebar-divider my-0">
@@ -99,7 +110,8 @@
                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                         Фракции
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['fractionsCount']}}</div>
+                                    <div
+                                        class="h5 mb-0 font-weight-bold text-gray-800">{{$data['fractionsCount']}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="nav-icon fab fa-facebook-f"></i>
@@ -195,7 +207,8 @@
                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                         Области защиты
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['protectionAreasCount']}}</div>
+                                    <div
+                                        class="h5 mb-0 font-weight-bold text-gray-800">{{$data['protectionAreasCount']}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="nav-icon fas fa-user-shield"></i>
@@ -215,7 +228,8 @@
                                     <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                         Типы атаки
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$data['attackRatesCount']}}</div>
+                                    <div
+                                        class="h5 mb-0 font-weight-bold text-gray-800">{{$data['attackRatesCount']}}</div>
                                 </div>
                                 <div class="col-auto">
                                     <i class="nav-icon fas fa-wrench"></i>
