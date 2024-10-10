@@ -13,7 +13,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{asset('css/styles.css')}}" rel="stylesheet"/>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
@@ -53,19 +53,22 @@
     </div>
 </nav>
 <!-- Header-->
-<header class="bg-dark py-5">
+<header style="background-image: url('/storage/images/Jason-Statham.jpg'); background-size: cover; background-position: center; width: 100%; height: 50vh;" class="py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Shop in style</h1>
-            <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+            <h1 class="display-4 fw-bolder">Выбери персонажа</h1>
+            <p class="lead fw-normal mb-0">Кто приготовился к бою, тот его наполовину выиграл (с) Джейсон Стейтем</p>
         </div>
     </div>
 </header>
+
+
+
 <!-- Section-->
 @yield('content')
 <!-- Footer-->
 <footer class="py-5 bg-dark">
-    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+    <div class="container"><p class="m-0 text-center text-white">Конец страницы</p></div>
 </footer>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
