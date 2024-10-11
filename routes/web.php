@@ -65,6 +65,12 @@ use App\Http\Controllers\Admin\User\{CreateUserController,
     UpdateUserController,
     UserController,
 };
+use App\Http\Controllers\Personal\User\{EditUserController as PEditUserController,
+    ShowUserController as PShowUserController,
+    StoreUserController as PStoreUserController,
+    UpdateUserController as PUpdateUserController,
+    UserController as PUserController,
+};
 use App\Http\Controllers\Admin\Race\{CreateRaceController,
     DeleteRaceController,
     EditRaceController,
@@ -109,6 +115,14 @@ Route::prefix('personal')->middleware(['auth'])->group(function () {
         Route::get('/{char}/edit', [PEditCharController::class, '__invoke'])->name('personal.char.edit');
         Route::patch('/{char}', [PUpdateCharController::class, '__invoke'])->name('personal.char.update');
         Route::delete('/{char}', [PDeleteCharController::class, '__invoke'])->name('personal.char.delete');
+    });
+
+    Route::prefix('user')->group(function () {
+        Route::get('/', [PUserController::class, '__invoke'])->name('personal.user.index');
+        Route::post('/', [PStoreUserController::class, '__invoke'])->name('personal.user.store');
+        Route::get('/{user}', [PShowUserController::class, '__invoke'])->name('personal.user.show');
+        Route::get('/{user}/edit', [PEditUserController::class, '__invoke'])->name('personal.user.edit');
+        Route::patch('/{user}', [PUpdateUserController::class, '__invoke'])->name('personal.user.update');
     });
 });
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {

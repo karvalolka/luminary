@@ -14,6 +14,11 @@
         <div class="sidebar-brand-text mx-3">Сайт</div>
     </a>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('personal.user.update', ['user' => Auth::id()])}}">
+            <i class="nav-icon far fa-id-card"></i>
+            <span>Изменить ник</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
