@@ -99,11 +99,19 @@ use App\Http\Controllers\Admin\Fraction\{CreateFractionController,
 };
 use App\Http\Controllers\Admin\Main\AdminIndexController;
 use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Profile\{IndexController as ProIndexController,
+    ShowController as ProShowController
+};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [IndexController::class, '__invoke'])->name('home');
+
+Route::prefix('profile')->group(function () {
+    Route::get('/', [ProIndexController::class, '__invoke'])->name('profile.index');
+    Route::get('/{char}', [ProShowController::class, '__invoke'])->name('profile.show');
+});
 
 Route::prefix('personal')->middleware(['auth'])->group(function () {
     Route::get('/', [PersonalIndexController::class, '__invoke'])->name('personal.main.index');
