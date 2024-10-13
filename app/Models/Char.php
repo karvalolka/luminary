@@ -46,5 +46,18 @@ class Char extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function getRaceName()
+    {
+        return $this->race->name ?? 'Неизвестная раса';
+    }
 
+    public function getFractionName()
+    {
+        return $this->fraction->name ?? 'Неизвестная фракция';
+    }
+
+    public function getGradeName()
+    {
+        return $this->grade->name ?? 'Неизвестный класс';
+    }
 }

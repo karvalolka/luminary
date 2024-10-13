@@ -10,15 +10,15 @@
                     <table>
                         <tr>
                             <td style="width: 100px;">Раса:</td>
-                            <td>{{ $char->race->name }}</td>
+                            <td>{{ $char->getRaceName()}}</td>
                         </tr>
                         <tr>
                             <td>Грейд:</td>
-                            <td>{{ $char->grade->name }}</td>
+                            <td>{{ $char->getGradeName() }}</td>
                         </tr>
                         <tr>
                             <td>Фракция:</td>
-                            <td>{{ $char->fraction->name }}</td>
+                            <td>{{ $char->getFractionName() }}</td>
                         </tr>
                         <tr>
                             <td>Уровень:</td>

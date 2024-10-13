@@ -4,7 +4,6 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    @if (auth()->check())
                         @foreach ($chars as $char)
                             <div class="col mb-5">
                                 <div class="card h-100">
@@ -42,22 +41,9 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                        <div class="text-center">
-                                            <a class="btn btn-outline-dark mt-auto" href="{{ route('profile.show', $char->id) }}">
-                                                Выбрать
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         @endforeach
-                    @else
-                        <div class="text-center mt-5">
-                            <h5>Авторизуйтесь или <a href="{{ route('login') }}" class="text-primary">войдите</a> / <a
-                                    href="{{ route('register') }}" class="text-primary">зарегистрируйтесь</a></h5>
-                        </div>
-                    @endif
                 </div>
             </div>
         </section>
