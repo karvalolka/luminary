@@ -60,4 +60,9 @@ class Char extends Model
     {
         return $this->grade->name ?? 'Неизвестный класс';
     }
+    public function weapon()
+    {
+        return $this->belongsTo(Weapon::class);
+    }
+
 }

@@ -34,7 +34,7 @@
                                             </p>
                                             <p style="text-align: center;">
                                                 <td class="col-2">Атака</td>
-                                                <td>{{$char->attack_power}}</td>
+                                                <td>{{$char->attack_power + ($characterWeapons[$char->id]->power ?? 0)}}</td>
                                             </p>
                                             <p style="text-align: center;">
                                                 <td class="col-2">Защита</td>

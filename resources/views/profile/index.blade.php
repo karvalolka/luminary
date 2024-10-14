@@ -16,28 +16,32 @@
                                             <p>{{$char->getGradeName()}}</br></p>
                                             <p>{{$char->getFractionName()}}</br></p>
                                             <p style="text-align: center;">
-                                                <td class="col-2">Уровень</td>
+                                                <td class="col-2">Уровень:</td>
                                                 <td>#</td>
                                             </p>
                                             <p style="text-align: center; background-color: #d9d9d9;">
-                                                <td class="col-2">Опыт</td>
+                                                <td class="col-2">Опыт:</td>
                                                 <td>{{$char->exp}}</td>
                                             </p>
                                             <p style="text-align: center; background-color: #ffcccc;">
-                                                <td class="col-2">HP</td>
+                                                <td class="col-2">HP:</td>
                                                 <td>{{$char->hp}}</td>
                                             </p>
                                             <p style="text-align: center; background-color: #cce5ff;">
-                                                <td class="col-2">MP</td>
+                                                <td class="col-2">MP:</td>
                                                 <td>{{$char->mp}}</td>
                                             </p>
                                             <p style="text-align: center;">
-                                                <td class="col-2">Атака</td>
+                                                <td class="col-2">Атака:</td>
                                                 <td>{{$char->attack_power}}</td>
                                             </p>
                                             <p style="text-align: center;">
-                                                <td class="col-2">Защита</td>
+                                                <td class="col-2">Защита:</td>
                                                 <td>{{$char->def_power}}</td>
+                                            </p>
+                                            <p style="text-align: center;">
+                                                <td class="col-2">Оружие:</td>
+                                                <td>{{ $char->weapon ? $char->weapon->name : 'Нет оружия' }}</td>
                                             </p>
                                         </div>
                                     </div>
