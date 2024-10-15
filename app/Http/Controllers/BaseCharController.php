@@ -33,7 +33,7 @@ class BaseCharController extends Controller
     {
         $charId = $request->input('char_id');
         $weaponId = $request->input('weapon_id');
-        return $this->equipWeapon($charId, $weaponId, 'profile.index');
+        return $this->equipWeapon($charId, $weaponId, 'profile.show');
     }
 
     protected function equipWeapon(int $charId, int $weaponId, string $redirectRoute)
@@ -42,6 +42,6 @@ class BaseCharController extends Controller
         $weapon = Weapon::findOrFail($weaponId);
         $char->weapon()->save($weapon);
 
-        return redirect()->route($redirectRoute);
+        return redirect()->route($redirectRoute, ['char' => $charId]);
     }
 }
