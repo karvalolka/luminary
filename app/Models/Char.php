@@ -62,7 +62,7 @@ class Char extends Model
     }
     public function weapon()
     {
-        return $this->belongsTo(Weapon::class);
+        return $this->hasOne(Weapon::class);
     }
 
 }

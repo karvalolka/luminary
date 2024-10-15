@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BaseCharController;
 use App\Http\Controllers\Admin\Armor\{ArmorController,
     CreateArmorController,
     DeleteArmorController,
@@ -110,7 +111,7 @@ Route::prefix('personal')->middleware(['auth'])->group(function () {
         Route::patch('/{char}', [PUpdateCharController::class, '__invoke'])->name('personal.char.update');
         Route::delete('/{char}', [PDeleteCharController::class, '__invoke'])->name('personal.char.delete');
 
-        Route::post('/{char}/equip', [EquipWeaponController::class, 'equip'])->name('chars.equip');
+        Route::post('/{char}/equip', [BaseCharController::class, 'equip'])->name('chars.equip');
     });
 
     Route::prefix('user')->group(function () {

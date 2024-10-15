@@ -36,6 +36,10 @@
                                                 <td class="col-2">Атака</td>
                                                 <td>{{$char->attack_power + ($characterWeapons[$char->id]->power ?? 0)}}</td>
                                             </p>
+                                            <p>
+                                                <td>Оружие:</td>
+                                                <td>{{ $char->weapon ? $char->weapon->name : 'Нет оружия' }}</td>
+                                            </p>
                                             <p style="text-align: center;">
                                                 <td class="col-2">Защита</td>
                                                 <td>{{$char->def_power}}</td>

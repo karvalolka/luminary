@@ -54,9 +54,9 @@
                             <td>{{ $char->weapon ? $char->weapon->name : 'Нет оружия' }}</td>
                         </tr>
                     </table>
-
                     <form action="{{ route('chars.equip', $char->id) }}" method="POST">
                         @csrf
+                        <input type="hidden" name="char_id" value="{{ $char->id }}">
                         <select name="weapon_id" required>
                             @foreach ($weapons as $weapon)
                                 <option value="{{ $weapon->id }}">{{ $weapon->name }}</option>
@@ -64,6 +64,7 @@
                         </select>
                         <button type="submit" class="btn btn-primary">Надеть оружие</button>
                     </form>
+
                 </div>
             </div>
         </div>

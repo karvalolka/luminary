@@ -16,8 +16,8 @@ class Weapon extends Model
     {
         return $this->belongsTo(AttackRate::class, 'attack_rates_id');
     }
-    public function chars()
+    public function char()
     {
-        return $this->hasMany(Char::class);
+        return $this->belongsTo(Char::class);
     }
 }

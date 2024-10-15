@@ -2,26 +2,20 @@
 
 namespace App\Http\Controllers\Personal\Char;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Personal\Char\StoreRequest;
-use App\Models\Char;
-use App\Models\Inventory;
+use App\Http\Controllers\BaseCharController;
+use App\Http\Requests\Base\BaseCharStoreRequest;
 
-class StoreCharController extends Controller
+class StoreCharController extends BaseCharController
 {
-    public function __invoke(StoreRequest $request)
+    public function __invoke(BaseCharStoreRequest $request)
     {
-        $data = $request->validated();
-        $data['user_id'] = auth()->id();
-        $characterCount = Char::where('user_id', $data['user_id'])->count();
+        $charId = $request->input('char_id');
 
-        if ($characterCount >= 2) {
-            return redirect()->back()->withErrors(['error' => 'Достигнуто максимальное количество персонажей (2).']);
+        if ($charId) {
+            $weaponId = $request->input('weapon_id');
+            return $this->equipWeapon($charId, $weaponId, 'personal.char.index');
         }
 
-        $char = Char::create($data);
-        $inventory = new Inventory();
-        $char->inventory()->save($inventory);
-        return redirect()->route('personal.char.index');
+        return $this->createChar($request, 'personal.char.index');
     }
 }
