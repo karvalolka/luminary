@@ -34,11 +34,11 @@
                                             </p>
                                             <p style="text-align: center;">
                                                 <td class="col-2">Атака</td>
-                                                <td>{{$char->attack_power + ($characterWeapons[$char->id]->power ?? 0)}}</td>
+                                                <td>{{$char->getTotalAttackPower()}}</td>
                                             </p>
                                             <p>
                                                 <td>Оружие:</td>
-                                                <td>{{ $char->weapon ? $char->weapon->name : 'Нет оружия' }}</td>
+                                                <td>{{ $char->getNaming() }}</td>
                                             </p>
                                             <p style="text-align: center;">
                                                 <td class="col-2">Защита</td>

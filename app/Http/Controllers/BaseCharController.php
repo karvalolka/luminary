@@ -33,15 +33,30 @@ class BaseCharController extends Controller
     {
         $charId = $request->input('char_id');
         $weaponId = $request->input('weapon_id');
+
+        if (is_null($charId) || is_null($weaponId)) {
+            return redirect()->back()->withErrors(['error' => 'Не указаны идентификаторы персонажа или оружия.']);
+        }
         return $this->equipWeapon($charId, $weaponId, 'profile.show');
     }
 
     protected function equipWeapon(int $charId, int $weaponId, string $redirectRoute)
     {
-        $char = Char::findOrFail($charId);
+        $char = Char::with('weapon')->find($charId);
         $weapon = Weapon::findOrFail($weaponId);
-        $char->weapon()->save($weapon);
+        $otherChar = Char::where('weapon_id', $weapon->id)->first();
+
+        if ($otherChar && $otherChar->id !== $char->id) {
+            $otherChar->weapon_id = null;
+            $otherChar->save();
+        }
+
+
+        $char->weapon_id = $weapon->id;
+        $char->save();
 
         return redirect()->route($redirectRoute, ['char' => $charId]);
+
     }
+
 }

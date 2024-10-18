@@ -62,7 +62,16 @@ class Char extends Model
     }
     public function weapon()
     {
-        return $this->hasOne(Weapon::class);
+        return $this->belongsTo(Weapon::class);
+    }
+
+    public function getTotalAttackPower()
+    {
+        return $this->attack_power + ($this->weapon ? $this->weapon->power : 0);
+    }
+    public function getNaming()
+    {
+        return $this->weapon?->name ?: 'Нет оружия';
     }
 
 }

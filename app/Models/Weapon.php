@@ -18,6 +18,9 @@ class Weapon extends Model
     }
     public function char()
     {
-        return $this->belongsTo(Char::class);
+        return $this->hasOne(Char::class);
     }
+
+
+
 }

@@ -68,8 +68,17 @@
 @yield('content')
 <!-- Footer-->
 <footer class="py-5 bg-dark">
-    <div class="container"><p class="m-0 text-center text-white">Конец страницы</p></div>
+    <div class="container">
+        <p class="m-0 text-center text-white">
+            @if (request()->routeIs('home'))
+                <span style="color: white;">Главная</span>
+            @else
+                <a href="{{ route('home') }}" class="text-white" style="text-decoration: none;">Главная</a>
+            @endif
+        </p>
+    </div>
 </footer>
+
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\BaseCharController;
 use App\Http\Controllers\Admin\Armor\{ArmorController,
     CreateArmorController,
     DeleteArmorController,
@@ -72,6 +71,7 @@ use App\Http\Controllers\Admin\Weapon\{CreateWeaponController,
     StoreWeaponController,
     UpdateWeaponController,
     WeaponController};
+use App\Http\Controllers\BaseCharController;
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Personal\Char\{CharController as PCharController,
     CreateCharController as PCreateCharController,
@@ -86,9 +86,7 @@ use App\Http\Controllers\Personal\User\{EditUserController as PEditUserControlle
     StoreUserController as PStoreUserController,
     UpdateUserController as PUpdateUserController,
     UserController as PUserController,};
-use App\Http\Controllers\Profile\{EquipWeaponController,
-    IndexController as ProIndexController,
-    ShowController as ProShowController};
+use App\Http\Controllers\Profile\{IndexController as ProIndexController, ShowController as ProShowController};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 

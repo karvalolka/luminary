@@ -38,11 +38,7 @@
                         <tr>
                             <td>Атака:</td>
                             <td>
-                                @if ($weapon)
-                                    {{ $char->attack_power + $weapon->power }}
-                                @else
-                                    {{ $char->attack_power }}
-                                @endif
+                                {{$char->getTotalAttackPower()}}
                             </td>
                         </tr>
                         <tr>
@@ -51,18 +47,18 @@
                         </tr>
                         <tr>
                             <td>Оружие:</td>
-                            <td>{{ $char->weapon ? $char->weapon->name : 'Нет оружия' }}</td>
+                            <td>{{$char->getNaming()}}</td>
                         </tr>
                     </table>
                     <form action="{{ route('chars.equip', $char->id) }}" method="POST">
                         @csrf
                         <input type="hidden" name="char_id" value="{{ $char->id }}">
-                        <select name="weapon_id" required>
+                        <select name="weapon_id">
                             @foreach ($weapons as $weapon)
                                 <option value="{{ $weapon->id }}">{{ $weapon->name }}</option>
                             @endforeach
                         </select>
-                        <button type="submit" class="btn btn-primary">Надеть оружие</button>
+                        <button type="submit">Надеть оружие</button>
                     </form>
 
                 </div>
