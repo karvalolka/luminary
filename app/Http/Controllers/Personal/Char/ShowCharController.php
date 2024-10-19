@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Personal\Char;
 
 use App\Http\Controllers\Controller;
 use App\Models\Char;
+use App\Models\Weapon;
 
 class ShowCharController extends Controller
 {

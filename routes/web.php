@@ -1,109 +1,102 @@
 <?php
 
-use App\Http\Controllers\Personal\Main\PersonalIndexController;
-use App\Http\Controllers\Admin\AttackRate\{AttackRateController,
-    CreateAttackRateController,
-    DeleteAttackRateController,
-    EditAttackRateController,
-    ShowAttackRateController,
-    StoreAttackRateController,
-    UpdateAttackRateController
-};
-use App\Http\Controllers\Admin\Item\{CreateItemController,
-    DeleteItemController,
-    EditItemController,
-    ItemController,
-    ShowItemController,
-    StoreItemController,
-    UpdateItemController
-};
-use App\Http\Controllers\Admin\ProtectionArea\{CreateProtectionAreaController,
-    DeleteProtectionAreaController,
-    EditProtectionAreaController,
-    ProtectionAreaController,
-    ShowProtectionAreaController,
-    StoreProtectionAreaController,
-    UpdateProtectionAreaController
-};
 use App\Http\Controllers\Admin\Armor\{ArmorController,
     CreateArmorController,
     DeleteArmorController,
     EditArmorController,
     ShowArmorController,
     StoreArmorController,
-    UpdateArmorController
-};
-use App\Http\Controllers\Admin\Weapon\{CreateWeaponController,
-    DeleteWeaponController,
-    EditWeaponController,
-    ShowWeaponController,
-    StoreWeaponController,
-    UpdateWeaponController,
-    WeaponController
-};
+    UpdateArmorController};
+use App\Http\Controllers\Admin\AttackRate\{AttackRateController,
+    CreateAttackRateController,
+    DeleteAttackRateController,
+    EditAttackRateController,
+    ShowAttackRateController,
+    StoreAttackRateController,
+    UpdateAttackRateController};
 use App\Http\Controllers\Admin\Char\{CharController,
     CreateCharController,
     DeleteCharController,
     EditCharController,
     ShowCharController,
     StoreCharController,
-    UpdateCharController,
-};
-use App\Http\Controllers\Personal\Char\{CharController as PCharController,
-    CreateCharController as PCreateCharController,
-    DeleteCharController as PDeleteCharController,
-    EditCharController as PEditCharController,
-    ShowCharController as PShowCharController,
-    StoreCharController as PStoreCharController,
-    UpdateCharController as PUpdateCharController,
-};
-use App\Http\Controllers\Admin\User\{CreateUserController,
-    DeleteUserController,
-    EditUserController,
-    ShowUserController,
-    StoreUserController,
-    UpdateUserController,
-    UserController,
-};
-use App\Http\Controllers\Personal\User\{EditUserController as PEditUserController,
-    ShowUserController as PShowUserController,
-    StoreUserController as PStoreUserController,
-    UpdateUserController as PUpdateUserController,
-    UserController as PUserController,
-};
-use App\Http\Controllers\Admin\Race\{CreateRaceController,
-    DeleteRaceController,
-    EditRaceController,
-    RaceController,
-    ShowRaceController,
-    StoreRaceController,
-    UpdateRaceController
-};
-
-use App\Http\Controllers\Admin\Grade\{CreateGradeController,
-    DeleteGradeController,
-    EditGradeController,
-    GradeController,
-    ShowGradeController,
-    StoreGradeController,
-    UpdateGradeController
-};
-
+    UpdateCharController,};
 use App\Http\Controllers\Admin\Fraction\{CreateFractionController,
     DeleteFractionController,
     EditFractionController,
     FractionController,
     ShowFractionController,
     StoreFractionController,
-    UpdateFractionController
-};
+    UpdateFractionController};
+use App\Http\Controllers\Admin\Grade\{CreateGradeController,
+    DeleteGradeController,
+    EditGradeController,
+    GradeController,
+    ShowGradeController,
+    StoreGradeController,
+    UpdateGradeController};
+use App\Http\Controllers\Admin\Item\{CreateItemController,
+    DeleteItemController,
+    EditItemController,
+    ItemController,
+    ShowItemController,
+    StoreItemController,
+    UpdateItemController};
 use App\Http\Controllers\Admin\Main\AdminIndexController;
+use App\Http\Controllers\Admin\ProtectionArea\{CreateProtectionAreaController,
+    DeleteProtectionAreaController,
+    EditProtectionAreaController,
+    ProtectionAreaController,
+    ShowProtectionAreaController,
+    StoreProtectionAreaController,
+    UpdateProtectionAreaController};
+use App\Http\Controllers\Admin\Race\{CreateRaceController,
+    DeleteRaceController,
+    EditRaceController,
+    RaceController,
+    ShowRaceController,
+    StoreRaceController,
+    UpdateRaceController};
+use App\Http\Controllers\Admin\User\{CreateUserController,
+    DeleteUserController,
+    EditUserController,
+    ShowUserController,
+    StoreUserController,
+    UpdateUserController,
+    UserController,};
+use App\Http\Controllers\Admin\Weapon\{CreateWeaponController,
+    DeleteWeaponController,
+    EditWeaponController,
+    ShowWeaponController,
+    StoreWeaponController,
+    UpdateWeaponController,
+    WeaponController};
+use App\Http\Controllers\BaseCharController;
 use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Personal\Char\{CharController as PCharController,
+    CreateCharController as PCreateCharController,
+    DeleteCharController as PDeleteCharController,
+    EditCharController as PEditCharController,
+    ShowCharController as PShowCharController,
+    StoreCharController as PStoreCharController,
+    UpdateCharController as PUpdateCharController};
+use App\Http\Controllers\Personal\Main\PersonalIndexController;
+use App\Http\Controllers\Personal\User\{EditUserController as PEditUserController,
+    ShowUserController as PShowUserController,
+    StoreUserController as PStoreUserController,
+    UpdateUserController as PUpdateUserController,
+    UserController as PUserController,};
+use App\Http\Controllers\Profile\{IndexController as ProIndexController, ShowController as ProShowController};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [IndexController::class, '__invoke'])->name('home');
+
+Route::prefix('profile')->group(function () {
+    Route::get('/', [ProIndexController::class, '__invoke'])->name('profile.index');
+    Route::get('/{char}', [ProShowController::class, '__invoke'])->name('profile.show');
+});
 
 Route::prefix('personal')->middleware(['auth'])->group(function () {
     Route::get('/', [PersonalIndexController::class, '__invoke'])->name('personal.main.index');
@@ -115,6 +108,8 @@ Route::prefix('personal')->middleware(['auth'])->group(function () {
         Route::get('/{char}/edit', [PEditCharController::class, '__invoke'])->name('personal.char.edit');
         Route::patch('/{char}', [PUpdateCharController::class, '__invoke'])->name('personal.char.update');
         Route::delete('/{char}', [PDeleteCharController::class, '__invoke'])->name('personal.char.delete');
+
+        Route::post('/{char}/equip', [BaseCharController::class, 'equip'])->name('chars.equip');
     });
 
     Route::prefix('user')->group(function () {

@@ -46,5 +46,32 @@ class Char extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function getRaceName()
+    {
+        return $this->race->name ?? 'Неизвестная раса';
+    }
+
+    public function getFractionName()
+    {
+        return $this->fraction->name ?? 'Неизвестная фракция';
+    }
+
+    public function getGradeName()
+    {
+        return $this->grade->name ?? 'Неизвестный класс';
+    }
+    public function weapon()
+    {
+        return $this->belongsTo(Weapon::class);
+    }
+
+    public function getTotalAttackPower()
+    {
+        return $this->attack_power + ($this->weapon ? $this->weapon->power : 0);
+    }
+    public function getNaming()
+    {
+        return $this->weapon?->name ?: 'Нет оружия';
+    }
 
 }
