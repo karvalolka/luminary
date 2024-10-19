@@ -69,7 +69,7 @@ class Char extends Model
     {
         return $this->attack_power + ($this->weapon ? $this->weapon->power : 0);
     }
-    public function getNaming()
+    public function getNamingWeapon()
     {
         return $this->weapon?->name ?: 'Нет оружия';
     }

@@ -41,7 +41,7 @@
                                             </p>
                                             <p style="text-align: center;">
                                                 <td class="col-2">Оружие:</td>
-                                                <td>{{ $char->weapon ? $char->weapon->name : 'Нет оружия' }}</td>
+                                                <td>{{$char->getNamingWeapon()}}</td>
                                             </p>
                                         </div>
                                     </div>
