@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Battle\BattleController;
 use App\Http\Controllers\Admin\Armor\{ArmorController,
     CreateArmorController,
     DeleteArmorController,
@@ -97,6 +98,7 @@ Route::prefix('profile')->group(function () {
     Route::get('/', [ProIndexController::class, '__invoke'])->name('profile.index');
     Route::get('/{char}', [ProShowController::class, '__invoke'])->name('profile.show');
 });
+
 
 Route::prefix('personal')->middleware(['auth'])->group(function () {
     Route::get('/', [PersonalIndexController::class, '__invoke'])->name('personal.main.index');
@@ -214,6 +216,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
         Route::delete('/{user}', [DeleteUserController::class, '__invoke'])->name('admin.user.delete');
     });
 });
-
-
+Route::get('/battle/{attackerId}/{defenderId}', [BattleController::class, 'startBattle'])->name('battle.start');
 Auth::routes();
+
+
+

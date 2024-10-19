@@ -60,7 +60,6 @@
                         </select>
                         <button type="submit">Надеть оружие</button>
                     </form>
-
                 </div>
             </div>
         </div>
