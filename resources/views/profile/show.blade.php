@@ -47,7 +47,7 @@
                         </tr>
                         <tr>
                             <td>Оружие:</td>
-                            <td>{{$char->getNaming()}}</td>
+                            <td>{{$char->getNamingWeapon()}}</td>
                         </tr>
                     </table>
                     <form action="{{ route('chars.equip', $char->id) }}" method="POST">
