@@ -61,6 +61,11 @@
                         <button type="submit">Надеть оружие</button>
                     </form>
                 </div>
+                <div>
+                    <a href="{{route('battle.create', ['attackerId' => $char->id])}}">
+                        хаю
+                    </a>
+                </div>
             </div>
         </div>
     </section>

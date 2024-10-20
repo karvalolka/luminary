@@ -21,23 +21,33 @@ class Battle extends Controller
 
         if ($damage > 0) {
             $defender->hp -= $damage;
-            echo "{$attacker->nickname} атакует {$defender->nickname} на {$damage} урона.\n";
+            $messages[] = "{$attacker->nickname} атакует {$defender->nickname} на {$damage}";
         } else {
-            echo "{$attacker->nickname} не пробивает защиту {$defender->nickname}.\n";
+            $messages[] = "{$attacker->nickname} не пробивает защиту {$defender->nickname}.";
         }
 
         if ($defender->hp <= 0) {
-            echo "{$defender->nickname} DEAD\n";
-            return true;
+            $defender->hp = 0;
+            $messages[] = "{$defender->nickname} проиграл\n";
+            return ['messages' => $messages, 'isDead' => true];
         }
 
-        return false;
+        return ['messages' => $messages, 'isDead' => false];
     }
 
     public function battle() {
+        $allMessages = [];
+
         while ($this->hero1->hp > 0 && $this->hero2->hp > 0) {
-            if ($this->attack($this->hero1, $this->hero2)) break;
-            if ($this->attack($this->hero2, $this->hero1)) break;
+            $attackResult1 = $this->attack($this->hero1, $this->hero2);
+            $allMessages = array_merge($allMessages, $attackResult1['messages']);
+            if ($attackResult1['isDead']) break;
+
+            $attackResult2 = $this->attack($this->hero2, $this->hero1);
+            $allMessages = array_merge($allMessages, $attackResult2['messages']);
+            if ($attackResult2['isDead']) break;
         }
+
+        return $allMessages;
     }
 }
