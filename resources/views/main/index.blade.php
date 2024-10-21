@@ -38,7 +38,7 @@
                                             </p>
                                             <p>
                                                 <td>Оружие:</td>
-                                                <td>{{ $char->getNaming() }}</td>
+                                                <td>{{ $char->getNamingWeapon() }}</td>
                                             </p>
                                             <p style="text-align: center;">
                                                 <td class="col-2">Защита</td>
