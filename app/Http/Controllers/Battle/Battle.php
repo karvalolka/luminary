@@ -10,12 +10,12 @@ class Battle extends Controller
     public $hero1;
     public $hero2;
 
-    public function __construct($hero1, $hero2) {
+    public function __construct(Char $hero1, Char $hero2) {
         $this->hero1 = $hero1;
         $this->hero2 = $hero2;
     }
 
-    public function attack($attacker, $defender) {
+    public function attack(Char $attacker, Char $defender) {
         $def_power = $defender->def_power;
         $damage = $attacker->getTotalAttackPower() - $def_power;
 

@@ -12,6 +12,7 @@ class CreateController extends Controller
     {
         $chars = Char::all();
         $selectedAttacker = Char::find($attackerId);
-        return view('battle.create', compact('chars', 'selectedAttacker'));
+        $defenders = $chars->where('id', '!=', $attackerId);
+        return view('battle.create', compact('chars', 'defenders','selectedAttacker'));
     }
 }

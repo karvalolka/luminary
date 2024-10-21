@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\Battle\{BattleController,
-CreateController as BattleCreateController,
-};
+use App\Http\Controllers\Battle\{BattleController, CreateController as BattleCreateController, ShowResultController};
 use App\Http\Controllers\Admin\Armor\{ArmorController,
     CreateArmorController,
     DeleteArmorController,
@@ -232,8 +230,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 });
 Route::prefix('battle')->group(function () {
     Route::get('/create/{attackerId}', [BattleCreateController::class, '__invoke'])->name('battle.create');
-    Route::post('/battle/start', [BattleController::class, 'startBattle'])->name('battle.start');
-    Route::get('/{attackerId}/{defenderId}', [BattleController::class, 'startBattle'])->name('battle.result');
+    Route::post('/start/{attackerId}', [BattleController::class, 'startBattle'])->name('battle.start');
+    Route::get('/result/{id}', [ShowResultController::class, '__invoke'])->name('battle.result');
 });
 
 Auth::routes();
